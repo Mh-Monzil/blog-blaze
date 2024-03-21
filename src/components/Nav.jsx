@@ -20,14 +20,14 @@ const Nav = () => {
   };
 
   return (
-    <div className="navbar shadow-lg px-8 sticky top-0">
+    <div className="navbar dark: shadow-lg px-8 sticky top-0 z-10">
       <div className="flex-1">
         <Link to={"/"} className="font-bold text-2xl text-secondary">
           Blog<span className="text-primary">Blaze</span>
         </Link>
       </div>
-      <div className="flex-none hidden md:flex ">
-        <ul className="space-x-8 menu-horizontal  px-8">
+      <div className="flex-none ">
+        <ul className="space-x-8 menu-horizontal  px-8 hidden md:flex">
           <li className="font-bold">
             <NavLink to={'/'} className={({isActive}) => isActive ? "font-bold text-primary" : "font-bold"}>Home</NavLink>
           </li>

@@ -5,7 +5,9 @@ import Footer from "./Footer";
 const MainLayout = () => {
     return (
         <div>
-            <Nav />
+            <div className="h-16 sticky top-0">
+                <Nav />
+            </div>
             <div className="min-h-[calc(100vh-116px)]">
                 <Outlet />
             </div>
