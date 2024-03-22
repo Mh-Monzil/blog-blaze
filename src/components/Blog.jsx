@@ -1,9 +1,16 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import BlogCard from "./BlogCard";
+import LoaderSpinner from "./LoaderSpinner";
+
+
 
 
 const Blog = () => {
     const blog = useLoaderData();
+
+	const navigation = useNavigation();
+	if(navigation.state === "loading") return <LoaderSpinner></LoaderSpinner>
+
     return (
         <section className="">
 	<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">

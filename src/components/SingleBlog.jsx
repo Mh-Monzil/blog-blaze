@@ -1,21 +1,18 @@
 import { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 
 const SingleBlog = () => {
     const [tabIndex, setTabIndex] = useState(0);
   const blog = useLoaderData();
   const {
-    cover_image,
     title,
-    description,
     published_at,
-    id,
     reading_time_minutes,
     comments_count,
     public_reactions_count,
   } = blog;
   return (
-    <div className="max-w-2xl px-6 py-16 mx-auto space-y-12">
+    <div className="max-w-2xl px-4 py-16 mx-auto space-y-12">
       <article className="space-y-8 ">
         <div className="space-y-6">
           <h1 className="text-4xl font-bold md:tracking-tight md:text-5xl">
@@ -32,7 +29,7 @@ const SingleBlog = () => {
               {comments_count} comments • {public_reactions_count} views
             </p>
           </div>
-          <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
+          <div className="flex items-center  overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap ">
             <Link to={''}
                 onClick={() => setTabIndex(0)}
                 className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0 ? "border border-b-0" : "border-b"} `}
@@ -51,7 +48,7 @@ const SingleBlog = () => {
               </svg>
               <span>Content</span>
             </Link>
-            <Link to={""}
+            <Link to={"author"}
                 onClick={() => setTabIndex(1)}
               className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 1 ? "border border-b-0" : "border-b"} rounded-t-lg `}
             >
@@ -72,34 +69,10 @@ const SingleBlog = () => {
             </Link>
           </div>
         </div>
-        <div className="">
-          <p>Insert the actual text content here...</p>
-        </div>
+        <Outlet />
       </article>
       <div>
-        <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-400">
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-400 dark:text-gray-900"
-          >
-            #MambaUI
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-400 dark:text-gray-900"
-          >
-            #TailwindCSS
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-400 dark:text-gray-900"
-          >
-            #Angular
-          </a>
-        </div>
+        
         <div className="space-y-2">
           <h4 className="text-lg font-semibold">Related posts</h4>
           <ul className="ml-4 space-y-1 list-disc">
